@@ -10,17 +10,17 @@ class TodoContainer extends React.Component {
     todos: [
       {
         id: uuidv4(),
-        title: "Setup development environment",
-        completed: true
-      },
-      {
-        id: uuidv4(),
-        title: "Develop website and add content",
+        title: "Submit new todos!",
         completed: false
       },
       {
         id: uuidv4(),
-        title: "Deploy to live server",
+        title: "Submit new todos! again!",
+        completed: false
+      },
+      {
+        id: uuidv4(),
+        title: "Submit new todos! One More TIME!",
         completed: false
       }
     ]
@@ -52,7 +52,7 @@ class TodoContainer extends React.Component {
 
   addTodoItem = title => {
     const newTodo = {
-      id: 4,
+      id: uuidv4(),
       title: title,
       completed: false
     };
@@ -63,18 +63,19 @@ class TodoContainer extends React.Component {
 
   render() {
     return (
-      <div>
-        <Header />
-        <InputTodo
-          addTodoProps={this.addTodoItem}
-        />
-        <TodosList 
-          todos={this.state.todos} 
-          handleChangeProps={this.handleChange} 
-          deleteTodoProps={this.delTodo}
-        />
+      <div className="container">
+        <div className="inner">
+          <Header />
+          <InputTodo addTodoProps={this.addTodoItem} />
+          <TodosList
+            todos={this.state.todos}
+            handleChangeProps={this.handleChange}
+            deleteTodoProps={this.delTodo}
+          />
+        </div>
       </div>
-    )
+    );
   }
+  
 }
 export default TodoContainer
